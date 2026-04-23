@@ -1,12 +1,9 @@
 import requests
-def getPoke(poke):
-    response = requests.get(f"https://random-d.uk/api/images/51.jpg{poke.lower()}")
-    if response.status_code != 200:
-        print("error fetching data")
-        return None
+def Trees(tree):
+    response = requests.get(f"https://data.cityofnewyork.us/resource/uvpi-gqnh.json{tree}")
     data = response.json()
     return data
 
-pokemon = getPoke("Bulbasaur")
-print(pokemon)
+tree = Trees("199062")
+print(tree)
 
