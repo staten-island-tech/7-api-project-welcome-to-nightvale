@@ -12,23 +12,21 @@ print(tree[0]["spc_common"]) """
 window = tk.Tk()
 window.title("tree !! !!! !")
 window.geometry("600x450")
-data_type = tk.StringVar()
+
 value = tk.StringVar()
-inp = tk.StringVar()
-label = tk.Label(window, font=("Comic Sans MS", 10), text="enter the data you would like to access:\n\nTree ID, Block ID, Status, Scientific name, Common name, Zip code")
+
+label = tk.Label(window, font=("Comic Sans MS", 10), text="enter tree id")
 label.pack(pady=10)
-entry=tk.Entry(window, textvariable = data_type, font=("Comic Sans MS", 10), width=30)
-entry.pack(pady=5)
+val_entry=tk.Entry(window, textvariable = value, font=("Comic Sans MS", 10), width=10)
+val_entry.pack(pady=5)
 
 def search():
-    print("hi")
+    treeid = value.get()
+    label.config(text=f"Tree #{treeid}\nCommon Name: {url + "?=spc_common"}", anchor="w", justify=tk.LEFT)
+    val_entry.destroy()
+    button.destroy()
 
-def next():
-    dtype = data_type.get()
-    label.config(text=f"enter value for {dtype}", textvariable = value)
-    button.config(text="search", command=search, command=button.destroy())
-
-button = tk.Button(window, font=("Comic Sans MS", 10), text="continue", width=15, command=next)
+button = tk.Button(window, font=("Comic Sans MS", 10), text="search", width=15, command=search)
 button.pack(pady=5)
 
 window.mainloop()
