@@ -8,14 +8,33 @@ print(tree[0]["spc_common"]) """
 
 window = tk.Tk()
 window.title("tree !! !!! !")
-window.geometry("600x450")
-
+window.geometry("400x300")
+window.resizable = False
+window.configure(bg="#7d8556")
 value = tk.StringVar()
 
-label = tk.Label(window, font=("Comic Sans MS", 10), text="enter six digit tree id")
+""" frame = tk.Frame(window, 
+                 width= 394, 
+                 height = 296, 
+                 bg="#7d8556",)
+frame.grid(column=1, row=1, sticky='nsew')
+frame.pack(pady = 3) """
+label = tk.Label(window, 
+                 font=("Comic Sans MS", 11,), 
+                 text="enter six digit tree id", 
+                 foreground= "#211a11", 
+                 background = "#7d8556")
+#label.grid(column=1, row=2, sticky='we')
 label.pack(pady=10)
-val_entry=tk.Entry(window, textvariable = value, font=("Comic Sans MS", 10), width=10)
+val_entry=tk.Entry(window, 
+                   textvariable = value, 
+                   font=("Comic Sans MS", 10, "bold"), 
+                   width=10, 
+                   foreground= "#211a11", 
+                   background = "#dbd8a0")
+#val_entry.grid(column=1, row=1, sticky='we')
 val_entry.pack(pady=5)
+
 
 def trees():
     tree = value.get()
@@ -36,7 +55,7 @@ def trees():
     val_entry.destroy()
     button.destroy() """
 
-button = tk.Button(window, font=("Comic Sans MS", 10), text="search", width=15, command=trees)
+button = tk.Button(window, font=("Comic Sans MS", 10), text="search", width=15, command=trees, bg="#dbd8a0", fg="#211a11")
 button.pack(pady=5)
 
 window.mainloop()
